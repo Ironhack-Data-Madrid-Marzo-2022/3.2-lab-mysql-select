@@ -70,3 +70,12 @@ from authors a
 left join titleauthor ta
 on ta.au_id = a.au_id
 
+left join titles t
+on ta.title_id = t.title_id
+
+left join sales s
+on t.title_id = s.title_id
+
+group by a.au_id
+order by sum(s.qty) desc
+
