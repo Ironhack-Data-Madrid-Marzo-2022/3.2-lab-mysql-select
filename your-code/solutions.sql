@@ -23,7 +23,6 @@ on titles.pub_id= publishers.pub_id
 group by titles.title;
 
 -- Challenge 3:
-
 select authors.au_id as 'AUTHOR ID',
  authors.au_lname as 'LAST NAME',
  authors.au_fname as 'FIRST NAME', sales.qty as 'TOTAL'
@@ -35,7 +34,8 @@ on titleauthor.title_id=titles.title_id
 left join sales
 on sales.title_id=titles.title_id
 group by authors.au_id
-ORDER BY 'TOTAL' DESC;
+ORDER BY sales.qty DESC
+LIMIT 3;
 
 -- Challenge 4:
 
@@ -50,4 +50,4 @@ on titleauthor.title_id=titles.title_id
 left join sales
 on sales.title_id=titles.title_id
 group by authors.au_id
-ORDER BY 'TOTAL' DESC;
+ORDER BY sales.qty DESC;
